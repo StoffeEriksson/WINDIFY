@@ -291,7 +291,7 @@ body {
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: url('/static/images/ChatGPT\ Image\ 2\ maj\ 2026\ 22_14_27.png') no-repeat center center ;
+    background: url('./static/images/ChatGPT\ Image\ 2\ maj\ 2026\ 22_14_27.png') no-repeat center center ;
     background-size: cover;
     filter: brightness(1.05) contrast(1.1);
     
