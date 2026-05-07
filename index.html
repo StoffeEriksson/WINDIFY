@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windify AB</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-brand">
+          <img
+            src="/static/images/windify-navbar-logo.png"
+            alt="Windify logga"
+            class="nav-logo"
+          />
+          <span class="nav-brand-name">Windify</span>
+        </a>
+
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-label="Öppna meny"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#">Hem</a></li>
+
+          <li class="nav-item has-dropdown">
+            <a href="#solutions">Tjänster</a>
+            <div class="dropdown-menu">
+              <a href="#bevakning">
+                <span class="dropdown-icon"><i class="fas fa-database"></i></span>
+                <span class="dropdown-text">
+                  <strong>Registerbevakning</strong>
+                  <span>Håll kund- och medlemsregister uppdaterade.</span>
+                </span>
+              </a>
+              <a href="#urval">
+                <span class="dropdown-icon"><i class="fas fa-bullseye"></i></span>
+                <span class="dropdown-text">
+                  <strong>Urval & segmentering</strong>
+                  <span>Hitta nya kunder och rätt målgrupp.</span>
+                </span>
+              </a>
+              <a href="#portal">
+                <span class="dropdown-icon"><i class="fas fa-layer-group"></i></span>
+                <span class="dropdown-text">
+                  <strong>Digital portal</strong>
+                  <span>Samla möten, stämmor och dokument.</span>
+                </span>
+              </a>
+            </div>
+          </li>
+
+          <li class="nav-item has-dropdown">
+            <a href="#solutions">Lösningar</a>
+            <div class="dropdown-menu large">
+              <a href="#solutions">
+                <span class="dropdown-icon"><i class="fas fa-building"></i></span>
+                <span class="dropdown-text">
+                  <strong>För företag</strong>
+                  <span>Kundregister, kontaktdata, analys och försäljning.</span>
+                </span>
+              </a>
+              <a href="#solutions">
+                <span class="dropdown-icon"><i class="fas fa-users"></i></span>
+                <span class="dropdown-text">
+                  <strong>För föreningar</strong>
+                  <span>Medlemsregister, fiskrätt, markägare och lagfarter.</span>
+                </span>
+              </a>
+              <a href="#help">
+                <span class="dropdown-icon"
+                  ><i class="fas fa-circle-question"></i
+                ></span>
+                <span class="dropdown-text">
+                  <strong>Vad behöver du hjälp med?</strong>
+                  <span>Hitta rätt lösning utifrån ditt behov.</span>
+                </span>
+              </a>
+              <a href="#why">
+                <span class="dropdown-icon"><i class="fas fa-star"></i></span>
+                <span class="dropdown-text">
+                  <strong>Varför Windify?</strong>
+                  <span
+                    >Aktuell data, bättre beslut och mindre administration.</span
+                  >
+                </span>
+              </a>
+            </div>
+          </li>
+
+          <li><a href="#about">Om oss</a></li>
+          <li><a href="#">Logga in</a></li>
+          <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <img
+          src="/static/images/windify-logo.png"
+          alt="Windify AB logga"
+          class="hero-logo"
+        />
+
+        <p class="subtitle">
+          Rätt data. Bättre beslut. Starkare affär.
+        </p>
+
+        <p class="subtitle secondary">
+          Uppdaterade register, träffsäkra urval och smarta bevakningar – för
+          bättre timing och mer välgrundade affärsbeslut.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="hero-btn primary">Kontakta oss</a>
+          <a href="#services" class="hero-btn secondary">Läs mer</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- VAD BEHÖVER DU HJÄLP MED -->
+      <section id="help" class="help-section">
+        <div class="section-header">
+          <span class="section-kicker">Kom igång</span>
+          <h2>Vad behöver du hjälp med?</h2>
+          <p>
+            Windify hjälper företag och föreningar att hitta, förstå, uppdatera
+            och använda rätt data.
+          </p>
+        </div>
+
+        <div class="help-grid">
+          <a href="#bevakning" class="help-card">
+            <div class="card-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Uppdatera register</h3>
+            <p>
+              Håll kundregister, medlemsregister och kontaktuppgifter aktuella
+              med uppdaterad och relevant information.
+            </p>
+          </a>
+
+          <a href="#urval" class="help-card">
+            <div class="card-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Hitta nya kunder</h3>
+            <p>
+              Skapa träffsäkra urval baserat på målgrupp, geografi, bransch,
+              ägarförhållanden eller annan relevant data.
+            </p>
+          </a>
+
+          <a href="#portal" class="help-card">
+            <div class="card-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <h3>Samla arbetet i en portal</h3>
+            <p>
+              Använd en digital portal för möten, stämmor, dokument,
+              beslutsunderlag och löpande administration.
+            </p>
+          </a>
+        </div>
+        <div class="help-cta">
+          <a href="#contact" class="cta-btn">Kom igång</a>
+        </div>
+      </section>
+
+      <!-- LÖSNINGAR -->
+      <section id="solutions" class="solutions-section">
+        <div class="section-header">
+          <span class="section-kicker">Lösningar</span>
+          <h2>Data, bevakning och digital struktur</h2>
+          <p>
+            Vi erbjuder datalösningar för företag och föreningar med fokus på
+            uppdaterade register, smarta urval och bättre beslutsunderlag.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <div id="bevakning" class="solution-card">
+            <span class="solution-label">Bevakning</span>
+            <div class="card-icon">
+              <i class="fa-solid fa-bell"></i>
+            </div>
+            <h3>Uppdaterade kund- och medlemsregister</h3>
+            <p>
+              Windify hjälper dig att hålla register aktuella genom att
+              identifiera förändringar, komplettera information och skapa bättre
+              överblick.
+            </p>
+
+            <ul>
+              <li>Uppdaterade kundregister</li>
+              <li>Medlemsregister</li>
+              <li>Kontaktdata</li>
+              <li>Person- och företagsinformation</li>
+              <li>Löpande registerbevakning</li>
+            </ul>
+            <a href="#bevakning" class="card-btn">Läs mer om bevakning</a>
+          </div>
+
+          <div id="urval" class="solution-card">
+            <span class="solution-label">Urval</span>
+            <div class="card-icon">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Hitta rätt målgrupp och nya kunder</h3>
+            <p>
+              Med urval och segmentering kan företag hitta nya kunder, stärka
+              försäljningen och nå rätt personer med rätt budskap.
+            </p>
+
+            <ul>
+              <li>Segmentering av målgrupper</li>
+              <li>Geografiska urval</li>
+              <li>Bransch- och företagsurval</li>
+              <li>Konsument- och företagsdata</li>
+              <li>Underlag för marknad och försäljning</li>
+            </ul>
+            <a href="#urval" class="card-btn">Läs mer om urval</a>
+          </div>
+
+          <div id="portal" class="solution-card">
+            <span class="solution-label">Portal</span>
+            <div class="card-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h3>Digital portal för möten och administration</h3>
+            <p>
+              Portalen samlar möten, stämmor, dokument och viktig information i
+              ett strukturerat arbetsflöde för företag och föreningar.
+            </p>
+
+            <ul>
+              <li>Stämmor och möten</li>
+              <li>Dokumenthantering</li>
+              <li>Beslutsunderlag</li>
+              <li>Registerkopplingar</li>
+              <li>Digital överblick</li>
+            </ul>
+            <a href="#portal" class="card-btn">Läs mer om portalen</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FÖRETAG OCH FÖRENINGAR -->
+      <section class="audience-showcase" id="solutions">
+        <div class="section-header">
+          <span class="section-kicker">För vem?</span>
+          <h2>Lösningar för företag och föreningar</h2>
+        </div>
+        <div class="showcase-row company-row">
+          <div class="showcase-content">
+            <div class="content-inner">
+              <span class="section-kicker">För företag</span>
+              <h2>Data som driver tillväxt och beslut</h2>
+              <p>
+                Windify hjälper företag att använda rätt data för försäljning,
+                marknadsföring, analys, kundvård och registerkvalitet.
+              </p>
+
+              <ul class="feature-list">
+                <li><i class="fa-solid fa-database"></i> Kundregister</li>
+                <li><i class="fa-solid fa-bullseye"></i> Urval</li>
+                <li><i class="fa-solid fa-chart-pie"></i> Segmentering</li>
+                <li><i class="fa-solid fa-bell"></i> Bevakning</li>
+                <li><i class="fa-solid fa-address-book"></i> Kontaktdata</li>
+              </ul>
+
+              <a href="#contact" class="card-btn">Läs mer</a>
+            </div>
+          </div>
+
+          <div class="showcase-image">
+            <img src="/static/images/företag.png" alt="Företag" />
+          </div>
+        </div>
+
+        <div class="showcase-row association-row">
+          <div class="showcase-image">
+            <img src="/static/images/föreningar.png" alt="Föreningar" />
+          </div>
+
+          <div class="showcase-content">
+            <div class="content-inner">
+              <span class="section-kicker">För föreningar</span>
+              <h2>Digital struktur för föreningar och register</h2>
+
+              <p>
+                Windify hjälper föreningar att ta fram och uppdatera viktiga
+                register och samla all information i en digital portal.
+              </p>
+
+              <ul class="feature-list">
+                <li><i class="fa-solid fa-users"></i> Medlemsregister</li>
+                <li><i class="fa-solid fa-fish"></i> Fiskrättsförteckningar</li>
+                <li><i class="fa-solid fa-tree"></i> Markägare</li>
+                <li><i class="fa-solid fa-water"></i> Vattenägare</li>
+                <li>
+                  <i class="fa-solid fa-file-signature"></i> Lagfarter
+                </li>
+              </ul>
+
+              <a href="#contact" class="card-btn">Läs mer</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VARFÖR VÄLJA OSS -->
+      <section id="why" class="why-section">
+        <div class="section-header">
+          <span class="section-kicker">Varför Windify?</span>
+          <h2>Rätt data ger bättre beslut</h2>
+          <p>
+            Vi kombinerar uppdaterad information, tydliga urval och digitala
+            verktyg som gör det enklare att arbeta strukturerat.
+          </p>
+        </div>
+        <p class="why-trust-note">
+          Vi använder datakällor med mycket hög kvalitet för att leverera
+          träffsäkra urval, uppdaterade register och pålitliga bevakningar – med
+          samma nivå av datakvalitet som större etablerade aktörer förlitar sig
+          på.
+        </p>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fa-solid fa-bell"></i>
+            </div>
+            <h3>Aktuell information</h3>
+            <p>
+              Register förändras hela tiden. Vi hjälper dig att hålla
+              informationen uppdaterad och användbar.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>Träffsäkra urval</h3>
+            <p>
+              Nå rätt målgrupp med segmentering och data anpassad efter dina
+              behov.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h3>Samlad digital portal</h3>
+            <p>
+              Samla register, dokument, möten och beslutsunderlag i ett modernt
+              system.
+            </p>
+          </div>
+          <div class="why-button">
+            <a href="#contact" class="card-btn">Kontakta oss</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- OM OSS -->
+      <section id="about" class="about-section">
+        <div class="about-shell">
+          <div class="about-heading">
+            <span class="section-kicker">Om oss</span>
+            <h2>Vi gör data enklare att använda</h2>
+            <p class="about-tagline">
+              Vi hjälper våra kunder att förstå sin målgrupp, hitta nya
+              möjligheter och hålla viktig information uppdaterad över tid.
+            </p>
+          </div>
+
+          <div class="team-grid">
+            <article class="team-card">
+              <img
+                src="/static/images/christoffer.jpg"
+                alt="Profilbild Christoffer Eriksson"
+                class="team-image"
+              />
+              <h3>Christoffer Eriksson</h3>
+              <p class="team-role">Grundare / VD</p>
+              <p class="team-text">
+                Jag arbetar med att utveckla Windifys vision och lösningar med
+                fokus på att göra komplex data enkel att förstå och använda. Med
+                erfarenhet inom data, affärsutveckling och digitala system
+                brinner jag för att skapa struktur och tydlighet för våra
+                kunder.
+              </p>
+            </article>
+
+            <article class="team-card">
+              <img
+                src="/static/images/peter.jpg"
+                alt="Profilbild Peter Kusendal"
+                class="team-image"
+              />
+              <h3>Peter Kusendal</h3>
+              <p class="team-role">Medgrundare / VD</p>
+              <p class="team-text">
+                Jag arbetar nära våra kunder för att förstå deras behov och skapa
+                lösningar som förenklar deras vardag. Med fokus på
+                registerkvalitet, struktur och användarvänlighet ser jag till att
+                våra system verkligen gör nytta i praktiken.
+                <br /><br />
+                Med över 30 års erfarenhet i branschen och som grundare av bolag
+                som Eniro har jag byggt upp en djup förståelse för data,
+                affärsmodeller och hur information skapar verkligt värde i
+                organisationer.
+              </p>
+            </article>
+          </div>
+
+          <div class="about-message">
+            <h3>Ett meddelande från Windify</h3>
+            <p class="about-message-intro">
+              Vi bygger lösningar som gör data mer användbar, strukturerad och
+              värdefull i det dagliga arbetet.
+            </p>
+            <p>
+              Vi bygger digitala datalösningar för företag och föreningar som
+              vill arbeta mer strukturerat med register, urval, bevakning och
+              beslutsunderlag.
+            </p>
+            <p>
+              Vårt mål är att göra komplex information enkel att förstå,
+              uppdatera och använda i det dagliga arbetet.
+            </p>
+            <p>
+              Med personlig service, smart teknik och fokus på kvalitet hjälper
+              vi våra kunder att skapa bättre överblick, tryggare beslut och mer
+              effektiva arbetsflöden.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <img
+              src="/static/images/windify-navbar-logo.png"
+              alt="Windify logo"
+            />
+            <span>Windify AB</span>
+          </div>
+          <p>
+            Moderna datalösningar för företag och föreningar. Vi samlar
+            register, bevakning, portalstöd och viktig information i ett system.
+          </p>
+          <p class="footer-tagline">
+            Data, register och digital struktur – samlat på ett ställe.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Snabblänkar</h4>
+          <ul class="footer-links">
+            <li><a href="#">Hem</a></li>
+            <li><a href="#services">Tjänster</a></li>
+            <li><a href="#about">Om oss</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Sociala medier</h4>
+          <div class="social-icons">
+            <a href="#" target="_blank" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" target="_blank" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" target="_blank" aria-label="X"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Kontakt</h4>
+          <p>E-post: info@windify.se</p>
+          <p>Telefon: 070-000 00 00</p>
+          <p>Org.nr: 559XXX-XXXX</p>
+        </div>
+      </div>
+
+      <div class="footer-cta">
+        <div class="footer-cta-content">
+          <h4>Redo att komma igång?</h4>
+          <p>Kontakta oss så berättar vi mer om hur Windify kan hjälpa er.</p>
+        </div>
+        <a href="#contact" class="footer-cta-btn">Kontakta oss</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Windify AB. Alla rättigheter förbehållna.</p>
+      </div>
+    </footer>
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const navToggle = document.querySelector(".nav-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = navMenu.classList.toggle("is-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        navMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            navMenu.classList.remove("is-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
