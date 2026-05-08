@@ -37,13 +37,8 @@
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html">Hem</a></li>
 
-          <li class="nav-item has-dropdown">
-            <a
-              href="index.html#solutions"
-              class="nav-dropdown-toggle"
-              aria-expanded="false"
-              aria-controls="nav-submenu-produkter"
-            >
+          <li class="nav-item has-dropdown mobile-nav-item has-mobile-submenu">
+            <a href="index.html#solutions" class="nav-desktop-link">
               <span class="nav-dropdown-label">Produkter</span>
               <i
                 class="nav-dropdown-chevron fas fa-chevron-down"
@@ -94,23 +89,30 @@
                 </span>
               </a>
             </div>
-            <ul class="mobile-submenu" id="nav-submenu-produkter" role="list">
-              <li>
-                <a href="register.html">Register &amp; datakvalitet</a>
-              </li>
-              <li><a href="urval.html">Urval &amp; prospektering</a></li>
-              <li><a href="index.html#bevakning">Bevakning i realtid</a></li>
-              <li><a href="index.html#portal">Digital portal</a></li>
-            </ul>
+            <button
+              type="button"
+              class="mobile-submenu-toggle"
+              aria-expanded="false"
+              aria-controls="nav-mobile-produkter"
+            >
+              Produkter
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div
+              class="mobile-submenu"
+              id="nav-mobile-produkter"
+              role="region"
+              aria-label="Produkter"
+            >
+              <a href="register.html">Register &amp; datakvalitet</a>
+              <a href="urval.html">Urval &amp; prospektering</a>
+              <a href="index.html#bevakning">Bevakning i realtid</a>
+              <a href="index.html#portal">Digital portal</a>
+            </div>
           </li>
 
-          <li class="nav-item has-dropdown">
-            <a
-              href="index.html#solutions"
-              class="nav-dropdown-toggle"
-              aria-expanded="false"
-              aria-controls="nav-submenu-losningar"
-            >
+          <li class="nav-item has-dropdown mobile-nav-item has-mobile-submenu">
+            <a href="index.html#solutions" class="nav-desktop-link">
               <span class="nav-dropdown-label">Lösningar</span>
               <i
                 class="nav-dropdown-chevron fas fa-chevron-down"
@@ -161,14 +163,26 @@
                 </span>
               </a>
             </div>
-            <ul class="mobile-submenu" id="nav-submenu-losningar" role="list">
-              <li><a href="index.html#foretag">För företag</a></li>
-              <li><a href="index.html#foreningar">För föreningar</a></li>
-              <li><a href="index.html#nya-kunder">Hitta nya kunder</a></li>
-              <li>
-                <a href="index.html#administration">Effektivisera administration</a>
-              </li>
-            </ul>
+            <button
+              type="button"
+              class="mobile-submenu-toggle"
+              aria-expanded="false"
+              aria-controls="nav-mobile-losningar"
+            >
+              Lösningar
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div
+              class="mobile-submenu"
+              id="nav-mobile-losningar"
+              role="region"
+              aria-label="Lösningar"
+            >
+              <a href="index.html#foretag">För företag</a>
+              <a href="index.html#foreningar">För föreningar</a>
+              <a href="index.html#nya-kunder">Hitta nya kunder</a>
+              <a href="index.html#administration">Effektivisera administration</a>
+            </div>
           </li>
 
           <li><a href="index.html#about">Om oss</a></li>
@@ -467,15 +481,11 @@
         }
       });
 
-      function isMobileNav() {
-        return window.matchMedia("(max-width: 768px)").matches;
-      }
-
-      function closeMobileSubmenus() {
-        document.querySelectorAll(".has-dropdown.is-expanded").forEach((li) => {
-          li.classList.remove("is-expanded");
-          const t = li.querySelector(".nav-dropdown-toggle");
-          if (t) t.setAttribute("aria-expanded", "false");
+      function closeMobileAccordions() {
+        document.querySelectorAll(".mobile-nav-item.open").forEach((item) => {
+          item.classList.remove("open");
+          const btn = item.querySelector(".mobile-submenu-toggle");
+          if (btn) btn.setAttribute("aria-expanded", "false");
         });
       }
 
@@ -484,37 +494,37 @@
           const isOpen = navMenu.classList.toggle("is-open");
           navToggle.setAttribute("aria-expanded", String(isOpen));
           if (!isOpen) {
-            closeMobileSubmenus();
+            closeMobileAccordions();
           }
         });
 
-        navMenu.querySelectorAll(".nav-dropdown-toggle").forEach((toggle) => {
+        navMenu.querySelectorAll(".mobile-submenu-toggle").forEach((toggle) => {
           toggle.addEventListener("click", (e) => {
-            if (!isMobileNav()) return;
+            if (window.innerWidth > 768) return;
             e.preventDefault();
             e.stopPropagation();
-            const li = toggle.closest(".has-dropdown");
-            if (!li) return;
-            const wasOpen = li.classList.contains("is-expanded");
-            closeMobileSubmenus();
-            if (!wasOpen) {
-              li.classList.add("is-expanded");
-              toggle.setAttribute("aria-expanded", "true");
-            }
+            const item = toggle.closest(".mobile-nav-item");
+            if (!item) return;
+            document.querySelectorAll(".mobile-nav-item.open").forEach((openItem) => {
+              if (openItem !== item) {
+                openItem.classList.remove("open");
+                const b = openItem.querySelector(".mobile-submenu-toggle");
+                if (b) b.setAttribute("aria-expanded", "false");
+              }
+            });
+            item.classList.toggle("open");
+            toggle.setAttribute(
+              "aria-expanded",
+              String(item.classList.contains("open"))
+            );
           });
         });
 
         navMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", () => {
-            if (
-              isMobileNav() &&
-              link.classList.contains("nav-dropdown-toggle")
-            ) {
-              return;
-            }
             navMenu.classList.remove("is-open");
             navToggle.setAttribute("aria-expanded", "false");
-            closeMobileSubmenus();
+            closeMobileAccordions();
           });
         });
 
@@ -522,7 +532,7 @@
           if (window.innerWidth > 768) {
             navMenu.classList.remove("is-open");
             navToggle.setAttribute("aria-expanded", "false");
-            closeMobileSubmenus();
+            closeMobileAccordions();
           }
         });
 
@@ -530,7 +540,7 @@
           .matchMedia("(max-width: 768px)")
           .addEventListener("change", (e) => {
             if (!e.matches) {
-              closeMobileSubmenus();
+              closeMobileAccordions();
             }
           });
       }

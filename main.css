@@ -257,11 +257,12 @@ body {
 }
 
 @media (min-width: 769px) {
-    .nav-dropdown-chevron {
+    .nav-desktop-link .nav-dropdown-chevron {
         display: none;
     }
 
-    .mobile-submenu {
+    .mobile-submenu-toggle,
+    .mobile-nav-item > .mobile-submenu {
         display: none !important;
     }
 }
@@ -2111,29 +2112,39 @@ section::after {
     .urval-highlight {
         padding: 0 18px !important;
         margin: 50px 0;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        box-sizing: border-box;
     }
 
     .urval-highlight__image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
         background: #ffffff;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
     }
 
     .urval-highlight__image img {
         width: 100%;
+        max-width: 100%;
         height: auto;
         display: block;
         min-height: 0;
         border-radius: 0;
+        object-fit: cover;
     }
 
     .urval-highlight__overlay {
         position: static;
         transform: none;
         margin: 0;
-        max-width: none;
         width: 100%;
+        max-width: none;
         padding: 24px 22px;
         border-radius: 0;
         box-shadow: none;
@@ -2630,6 +2641,12 @@ section::after {
 }
 
 @media (max-width: 768px) {
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     body {
         padding-top: 0;
     }
@@ -2641,6 +2658,7 @@ section::after {
 
     main.product-page-urval {
         overflow: hidden;
+        max-width: 100%;
     }
 
     .nav-container .nav-menu {
@@ -2779,7 +2797,17 @@ section::after {
         display: flex;
     }
 
+    .mega-menu,
+    .dropdown-menu,
+    .desktop-dropdown,
     .desktop-mega-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    .nav-desktop-link {
         display: none !important;
     }
 
@@ -2793,50 +2821,56 @@ section::after {
         align-items: stretch;
     }
 
-    .has-dropdown > a.nav-dropdown-toggle {
+    .mobile-submenu-toggle {
         width: 100%;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
         gap: 10px;
+        background: transparent;
+        border: 0;
+        color: #ffffff;
+        font: inherit;
+        font-weight: 500;
+        padding: 0;
+        cursor: pointer;
+        text-align: left;
     }
 
-    .nav-dropdown-chevron {
+    .mobile-submenu-toggle i {
         flex-shrink: 0;
         font-size: 0.7rem;
         opacity: 0.88;
-        transition: transform 0.22s ease;
+        transition: transform 0.2s ease;
     }
 
-    .has-dropdown.is-expanded .nav-dropdown-chevron {
+    .mobile-nav-item.open .mobile-submenu-toggle i {
         transform: rotate(180deg);
     }
 
     .mobile-submenu {
         display: none;
-        list-style: none;
-        margin: 8px 0 0;
-        padding: 10px 12px;
-        border-radius: 12px;
-        background: rgba(22, 48, 108, 0.72);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        gap: 2px;
+        margin-top: 10px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .has-dropdown.is-expanded .mobile-submenu {
+    .mobile-nav-item.open .mobile-submenu {
         display: flex;
         flex-direction: column;
-    }
-
-    .mobile-submenu li {
-        margin: 0;
+        gap: 10px;
     }
 
     .mobile-submenu a {
-        display: block;
-        padding: 9px 8px;
-        border-radius: 8px;
-        font-size: 0.92rem;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        line-height: 1.4;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.94);
+        padding: 6px 4px;
+        border-radius: 8px;
     }
 
     .mobile-submenu a:hover {
@@ -2844,8 +2878,7 @@ section::after {
         color: #ffffff;
     }
 
-    .mobile-submenu a::after,
-    .nav-dropdown-toggle::after {
+    .mobile-submenu a::after {
         display: none !important;
     }
 
