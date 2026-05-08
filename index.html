@@ -38,8 +38,19 @@
           <li><a href="#">Hem</a></li>
 
           <li class="nav-item has-dropdown">
-            <a href="#solutions">Produkter</a>
-            <div class="dropdown-menu">
+            <a
+              href="#solutions"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-controls="nav-submenu-produkter"
+            >
+              <span class="nav-dropdown-label">Produkter</span>
+              <i
+                class="nav-dropdown-chevron fas fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+            </a>
+            <div class="dropdown-menu desktop-mega-menu">
               <a href="register.html" class="mega-item">
                 <span class="mega-icon"><i class="fa-solid fa-database"></i></span>
                 <span class="mega-text">
@@ -50,7 +61,7 @@
                   >
                 </span>
               </a>
-              <a href="#urval" class="mega-item">
+              <a href="urval.html" class="mega-item">
                 <span class="mega-icon"><i class="fa-solid fa-bullseye"></i></span>
                 <span class="mega-text">
                   <strong>Urval & prospektering</strong>
@@ -83,11 +94,30 @@
                 </span>
               </a>
             </div>
+            <ul class="mobile-submenu" id="nav-submenu-produkter" role="list">
+              <li>
+                <a href="register.html">Register &amp; datakvalitet</a>
+              </li>
+              <li><a href="urval.html">Urval &amp; prospektering</a></li>
+              <li><a href="#bevakning">Bevakning i realtid</a></li>
+              <li><a href="#portal">Digital portal</a></li>
+            </ul>
           </li>
 
           <li class="nav-item has-dropdown">
-            <a href="#solutions">Lösningar</a>
-            <div class="dropdown-menu large">
+            <a
+              href="#solutions"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-controls="nav-submenu-losningar"
+            >
+              <span class="nav-dropdown-label">Lösningar</span>
+              <i
+                class="nav-dropdown-chevron fas fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+            </a>
+            <div class="dropdown-menu large desktop-mega-menu">
               <a href="#foretag" class="mega-item">
                 <span class="mega-icon"><i class="fa-solid fa-building"></i></span>
                 <span class="mega-text">
@@ -131,6 +161,14 @@
                 </span>
               </a>
             </div>
+            <ul class="mobile-submenu" id="nav-submenu-losningar" role="list">
+              <li><a href="#foretag">För företag</a></li>
+              <li><a href="#foreningar">För föreningar</a></li>
+              <li><a href="#nya-kunder">Hitta nya kunder</a></li>
+              <li>
+                <a href="#administration">Effektivisera administration</a>
+              </li>
+            </ul>
           </li>
 
           <li><a href="#about">Om oss</a></li>
@@ -241,12 +279,12 @@
               överblick.
             </p>
 
-            <ul>
-              <li>Uppdaterade kundregister</li>
-              <li>Medlemsregister</li>
-              <li>Kontaktdata</li>
-              <li>Person- och företagsinformation</li>
-              <li>Löpande registerbevakning</li>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-arrows-rotate"></i> Uppdaterade kundregister</li>
+              <li><i class="fa-solid fa-database"></i> Medlemsregister</li>
+              <li><i class="fa-solid fa-bell"></i> Kontaktdata</li>
+              <li><i class="fa-solid fa-arrows-rotate"></i> Person- och företagsinformation</li>
+              <li><i class="fa-solid fa-bell"></i> Löpande registerbevakning</li>
             </ul>
             <a href="#bevakning" class="card-btn">Läs mer om bevakning</a>
           </div>
@@ -262,12 +300,12 @@
               försäljningen och nå rätt personer med rätt budskap.
             </p>
 
-            <ul>
-              <li>Segmentering av målgrupper</li>
-              <li>Geografiska urval</li>
-              <li>Bransch- och företagsurval</li>
-              <li>Konsument- och företagsdata</li>
-              <li>Underlag för marknad och försäljning</li>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-bullseye"></i> Segmentering av målgrupper</li>
+              <li><i class="fa-solid fa-chart-line"></i> Geografiska urval</li>
+              <li><i class="fa-solid fa-filter"></i> Bransch- och företagsurval</li>
+              <li><i class="fa-solid fa-filter"></i> Konsument- och företagsdata</li>
+              <li><i class="fa-solid fa-chart-line"></i> Underlag för marknad och försäljning</li>
             </ul>
             <a href="#urval" class="card-btn">Läs mer om urval</a>
           </div>
@@ -283,12 +321,12 @@
               ett strukturerat arbetsflöde för företag och föreningar.
             </p>
 
-            <ul>
-              <li>Stämmor och möten</li>
-              <li>Dokumenthantering</li>
-              <li>Beslutsunderlag</li>
-              <li>Registerkopplingar</li>
-              <li>Digital överblick</li>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-layer-group"></i> Stämmor och möten</li>
+              <li><i class="fa-solid fa-file-lines"></i> Dokumenthantering</li>
+              <li><i class="fa-solid fa-clipboard-list"></i> Beslutsunderlag</li>
+              <li><i class="fa-solid fa-layer-group"></i> Registerkopplingar</li>
+              <li><i class="fa-solid fa-file-lines"></i> Digital överblick</li>
             </ul>
             <a href="#portal" class="card-btn">Läs mer om portalen</a>
           </div>
@@ -569,16 +607,54 @@
         }
       });
 
+      function isMobileNav() {
+        return window.matchMedia("(max-width: 768px)").matches;
+      }
+
+      function closeMobileSubmenus() {
+        document.querySelectorAll(".has-dropdown.is-expanded").forEach((li) => {
+          li.classList.remove("is-expanded");
+          const t = li.querySelector(".nav-dropdown-toggle");
+          if (t) t.setAttribute("aria-expanded", "false");
+        });
+      }
+
       if (navToggle && navMenu) {
         navToggle.addEventListener("click", () => {
           const isOpen = navMenu.classList.toggle("is-open");
           navToggle.setAttribute("aria-expanded", String(isOpen));
+          if (!isOpen) {
+            closeMobileSubmenus();
+          }
+        });
+
+        navMenu.querySelectorAll(".nav-dropdown-toggle").forEach((toggle) => {
+          toggle.addEventListener("click", (e) => {
+            if (!isMobileNav()) return;
+            e.preventDefault();
+            e.stopPropagation();
+            const li = toggle.closest(".has-dropdown");
+            if (!li) return;
+            const wasOpen = li.classList.contains("is-expanded");
+            closeMobileSubmenus();
+            if (!wasOpen) {
+              li.classList.add("is-expanded");
+              toggle.setAttribute("aria-expanded", "true");
+            }
+          });
         });
 
         navMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", () => {
+            if (
+              isMobileNav() &&
+              link.classList.contains("nav-dropdown-toggle")
+            ) {
+              return;
+            }
             navMenu.classList.remove("is-open");
             navToggle.setAttribute("aria-expanded", "false");
+            closeMobileSubmenus();
           });
         });
 
@@ -586,8 +662,17 @@
           if (window.innerWidth > 768) {
             navMenu.classList.remove("is-open");
             navToggle.setAttribute("aria-expanded", "false");
+            closeMobileSubmenus();
           }
         });
+
+        window
+          .matchMedia("(max-width: 768px)")
+          .addEventListener("change", (e) => {
+            if (!e.matches) {
+              closeMobileSubmenus();
+            }
+          });
       }
     </script>
   </body>
