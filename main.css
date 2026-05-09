@@ -756,9 +756,15 @@ section::after {
     padding-bottom: 40px;
 }
 
-.solution-card .card-btn {
+.solution-card .card-btn,
+.solution-card .btn {
     margin-top: auto;
     align-self: flex-start;
+}
+
+/* Primary CTA alias — matches .btn for product cards and shared patterns */
+.btn-primary {
+    color: #ffffff;
 }
 
 .solution-card .card-icon {
@@ -874,6 +880,10 @@ section::after {
 
 .showcase-content li {
     margin-bottom: 7px; 
+}
+
+.showcase-content .btn {
+    margin-top: 28px;
 }
 
 .showcase-image {
@@ -1396,7 +1406,53 @@ section::after {
     background-image: url("./static/images/urval-hero.png");
 }
 
-.product-page-urval .product-hero::before {
+.product-page-bevakning .product-hero {
+    background-image: url("./static/images/bevakning-hero.png");
+}
+
+.product-page-portal .product-hero {
+    background-image: url("./static/images/portal-hero.png");
+}
+
+.product-page-foretag .product-hero {
+    background-image: url("./static/images/foretag-hero.png");
+}
+
+.product-page-foreningar .product-hero {
+    background-image: url("./static/images/foreningar-hero.png");
+}
+
+.product-page-hitta-nya-kunder .product-hero {
+    background-image: url("./static/images/hitta-nya-kunder-hero.png");
+}
+
+.product-page-effektivisera .product-hero {
+    background-image: url("./static/images/effektivisera-hero.png");
+    min-height: 90vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.product-page-effektivisera .product-hero::before {
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 25, 60, 0.85) 0%,
+        rgba(10, 25, 60, 0.5) 40%,
+        rgba(10, 25, 60, 0.2) 100%
+    );
+}
+
+.product-page-effektivisera .product-hero .section-header {
+    position: relative;
+    z-index: 2;
+}
+
+.product-page-urval .product-hero::before,
+.product-page-bevakning .product-hero::before,
+.product-page-foretag .product-hero::before,
+.product-page-foreningar .product-hero::before,
+.product-page-hitta-nya-kunder .product-hero::before {
     background: linear-gradient(
         90deg,
         rgba(5, 15, 40, 0.95) 0%,
@@ -1407,12 +1463,45 @@ section::after {
     );
 }
 
-.product-page-urval .product-hero .section-header h1 {
+.product-page-portal .product-hero::before {
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(5, 15, 40, 0.85) 0%,
+        rgba(5, 15, 40, 0.65) 40%,
+        rgba(5, 15, 40, 0.25) 70%,
+        rgba(5, 15, 40, 0) 100%
+    );
+}
+
+.product-page-portal .product-hero .section-header {
+    z-index: 2;
+}
+
+.product-page-urval .product-hero .section-header h1,
+.product-page-bevakning .product-hero .section-header h1,
+.product-page-foretag .product-hero .section-header h1,
+.product-page-foreningar .product-hero .section-header h1,
+.product-page-hitta-nya-kunder .product-hero .section-header h1,
+.product-page-effektivisera .product-hero .section-header h1 {
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.product-page-urval .product-hero .section-header p {
+.product-page-portal .product-hero .section-header h1 {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.product-page-urval .product-hero .section-header p,
+.product-page-bevakning .product-hero .section-header p,
+.product-page-foretag .product-hero .section-header p,
+.product-page-foreningar .product-hero .section-header p,
+.product-page-hitta-nya-kunder .product-hero .section-header p,
+.product-page-effektivisera .product-hero .section-header p {
     opacity: 0.9;
+}
+
+.product-page-portal .product-hero .section-header p {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .product-hero::before {
@@ -1525,28 +1614,169 @@ section::after {
     margin-top: 10px;
 }
 
+/* Portal: clearer image + lighter left gradient; compact glass card (visual break only) */
+.product-page-portal .product-visual-wrap {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-page-portal .product-visual-wrap:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
+}
+
+.product-page-portal .product-visual-wrap::after {
+    display: none;
+}
+
+.product-page-portal .product-visual-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.65) 0%,
+        rgba(255, 255, 255, 0.35) 38%,
+        rgba(255, 255, 255, 0.05) 70%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.product-page-portal .product-visual-wrap img {
+    position: relative;
+    z-index: 0;
+    filter: none;
+    opacity: 1;
+}
+
+.product-page-portal .product-visual-copy {
+    z-index: 2;
+    max-width: 500px;
+    padding: 30px 34px;
+    background: rgba(255, 255, 255, 0.78);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+}
+
+.product-page-portal .product-visual-copy h2 {
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+.product-page-portal .product-visual-copy p {
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+/* Effektivisera: ljus visual overlay + glas-kort (vänster) */
+.product-page-effektivisera .product-visual-wrap {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-page-effektivisera .product-visual-wrap:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
+}
+
+.product-page-effektivisera .product-visual-wrap::after {
+    display: none;
+}
+
+.product-page-effektivisera .product-visual-wrap::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(255, 255, 255, 0.4) 42%,
+        rgba(255, 255, 255, 0.08) 72%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.product-page-effektivisera .product-visual-wrap img {
+    position: relative;
+    z-index: 0;
+    filter: none;
+    opacity: 1;
+}
+
+.product-page-effektivisera .product-visual-copy {
+    z-index: 2;
+    max-width: 500px;
+    padding: 28px 32px;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+}
+
+.product-page-effektivisera .feature-card,
+.product-page-effektivisera .benefit-card {
+    border-radius: 16px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+}
+
+.product-page-effektivisera .feature-card:hover,
+.product-page-effektivisera .benefit-card:hover {
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.12);
+}
+
 .product-overview {
     background: #ffffff;
 }
 
-.product-page-urval .product-overview {
+.product-page-urval .product-overview,
+.product-page-bevakning .product-overview,
+.product-page-portal .product-overview,
+.product-page-foretag .product-overview,
+.product-page-foreningar .product-overview,
+.product-page-hitta-nya-kunder .product-overview,
+.product-page-effektivisera .product-overview {
     padding-top: 80px !important;
     padding-bottom: 80px !important;
     animation: urvalOverviewFadeUp 0.8s ease both;
 }
 
-.product-page-urval .product-overview .section-header {
+.product-page-urval .product-overview .section-header,
+.product-page-bevakning .product-overview .section-header,
+.product-page-portal .product-overview .section-header,
+.product-page-foretag .product-overview .section-header,
+.product-page-foreningar .product-overview .section-header,
+.product-page-hitta-nya-kunder .product-overview .section-header,
+.product-page-effektivisera .product-overview .section-header {
     max-width: 700px;
     margin: 0 auto 40px;
     text-align: center;
 }
 
-.product-page-urval .product-overview .section-header p {
+.product-page-urval .product-overview .section-header p,
+.product-page-bevakning .product-overview .section-header p,
+.product-page-portal .product-overview .section-header p,
+.product-page-foretag .product-overview .section-header p,
+.product-page-foreningar .product-overview .section-header p,
+.product-page-hitta-nya-kunder .product-overview .section-header p,
+.product-page-effektivisera .product-overview .section-header p {
     max-width: 700px;
     margin: 0 auto;
 }
 
-.product-page-urval .overview-icon {
+.product-page-urval .overview-icon,
+.product-page-bevakning .overview-icon,
+.product-page-portal .overview-icon,
+.product-page-foretag .overview-icon,
+.product-page-foreningar .overview-icon,
+.product-page-hitta-nya-kunder .overview-icon,
+.product-page-effektivisera .overview-icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1557,12 +1787,24 @@ section::after {
     background: rgba(79, 124, 255, 0.1);
 }
 
-.product-page-urval .overview-icon i {
+.product-page-urval .overview-icon i,
+.product-page-bevakning .overview-icon i,
+.product-page-portal .overview-icon i,
+.product-page-foretag .overview-icon i,
+.product-page-foreningar .overview-icon i,
+.product-page-hitta-nya-kunder .overview-icon i,
+.product-page-effektivisera .overview-icon i {
     font-size: 24px;
     color: #4f7cff;
 }
 
-.product-page-urval .overview-badges {
+.product-page-urval .overview-badges,
+.product-page-bevakning .overview-badges,
+.product-page-portal .overview-badges,
+.product-page-foretag .overview-badges,
+.product-page-foreningar .overview-badges,
+.product-page-hitta-nya-kunder .overview-badges,
+.product-page-effektivisera .overview-badges {
     display: flex;
     justify-content: center;
     gap: 12px;
@@ -1570,7 +1812,13 @@ section::after {
     flex-wrap: wrap;
 }
 
-.product-page-urval .overview-badges span {
+.product-page-urval .overview-badges span,
+.product-page-bevakning .overview-badges span,
+.product-page-portal .overview-badges span,
+.product-page-foretag .overview-badges span,
+.product-page-foreningar .overview-badges span,
+.product-page-hitta-nya-kunder .overview-badges span,
+.product-page-effektivisera .overview-badges span {
     background: #f3f6fb;
     border-radius: 20px;
     padding: 11px 18px;
@@ -1580,13 +1828,25 @@ section::after {
     transition: all 0.25s ease;
 }
 
-.product-page-urval .overview-badges span:hover {
+.product-page-urval .overview-badges span:hover,
+.product-page-bevakning .overview-badges span:hover,
+.product-page-portal .overview-badges span:hover,
+.product-page-foretag .overview-badges span:hover,
+.product-page-foreningar .overview-badges span:hover,
+.product-page-hitta-nya-kunder .overview-badges span:hover,
+.product-page-effektivisera .overview-badges span:hover {
     background: #4f7cff;
     color: #ffffff;
     transform: translateY(-2px);
 }
 
-.product-page-urval .product-trust-note {
+.product-page-urval .product-trust-note,
+.product-page-bevakning .product-trust-note,
+.product-page-portal .product-trust-note,
+.product-page-foretag .product-trust-note,
+.product-page-foreningar .product-trust-note,
+.product-page-hitta-nya-kunder .product-trust-note,
+.product-page-effektivisera .product-trust-note {
     margin-top: 4px;
     padding: 22px 24px;
     border-radius: 16px;
@@ -1779,7 +2039,19 @@ section::after {
 }
 
 .product-page-urval .benefit-card .card-icon,
-.product-page-urval .use-card .card-icon {
+.product-page-urval .use-card .card-icon,
+.product-page-bevakning .benefit-card .card-icon,
+.product-page-bevakning .use-card .card-icon,
+.product-page-portal .benefit-card .card-icon,
+.product-page-portal .use-card .card-icon,
+.product-page-foretag .benefit-card .card-icon,
+.product-page-foretag .use-card .card-icon,
+.product-page-foreningar .benefit-card .card-icon,
+.product-page-foreningar .use-card .card-icon,
+.product-page-hitta-nya-kunder .benefit-card .card-icon,
+.product-page-hitta-nya-kunder .use-card .card-icon,
+.product-page-effektivisera .benefit-card .card-icon,
+.product-page-effektivisera .use-card .card-icon {
     width: 52px;
     height: 52px;
     border-radius: 16px;
@@ -1793,35 +2065,107 @@ section::after {
 }
 
 .product-page-urval .benefit-card .card-icon i,
-.product-page-urval .use-card .card-icon i {
+.product-page-urval .use-card .card-icon i,
+.product-page-bevakning .benefit-card .card-icon i,
+.product-page-bevakning .use-card .card-icon i,
+.product-page-portal .benefit-card .card-icon i,
+.product-page-portal .use-card .card-icon i,
+.product-page-foretag .benefit-card .card-icon i,
+.product-page-foretag .use-card .card-icon i,
+.product-page-foreningar .benefit-card .card-icon i,
+.product-page-foreningar .use-card .card-icon i,
+.product-page-hitta-nya-kunder .benefit-card .card-icon i,
+.product-page-hitta-nya-kunder .use-card .card-icon i,
+.product-page-effektivisera .benefit-card .card-icon i,
+.product-page-effektivisera .use-card .card-icon i {
     font-size: 20px;
 }
 
 .product-page-urval .benefit-card,
-.product-page-urval .use-card {
+.product-page-urval .use-card,
+.product-page-bevakning .benefit-card,
+.product-page-bevakning .use-card,
+.product-page-portal .benefit-card,
+.product-page-portal .use-card,
+.product-page-foretag .benefit-card,
+.product-page-foretag .use-card,
+.product-page-foreningar .benefit-card,
+.product-page-foreningar .use-card,
+.product-page-hitta-nya-kunder .benefit-card,
+.product-page-hitta-nya-kunder .use-card,
+.product-page-effektivisera .benefit-card,
+.product-page-effektivisera .use-card {
     padding: 34px;
     min-height: 210px;
     transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .product-page-urval .benefit-card h3,
-.product-page-urval .use-card h3 {
+.product-page-urval .use-card h3,
+.product-page-bevakning .benefit-card h3,
+.product-page-bevakning .use-card h3,
+.product-page-portal .benefit-card h3,
+.product-page-portal .use-card h3,
+.product-page-foretag .benefit-card h3,
+.product-page-foretag .use-card h3,
+.product-page-foreningar .benefit-card h3,
+.product-page-foreningar .use-card h3,
+.product-page-hitta-nya-kunder .benefit-card h3,
+.product-page-hitta-nya-kunder .use-card h3,
+.product-page-effektivisera .benefit-card h3,
+.product-page-effektivisera .use-card h3 {
     margin-bottom: 14px;
 }
 
 .product-page-urval .benefit-card p,
-.product-page-urval .use-card p {
+.product-page-urval .use-card p,
+.product-page-bevakning .benefit-card p,
+.product-page-bevakning .use-card p,
+.product-page-portal .benefit-card p,
+.product-page-portal .use-card p,
+.product-page-foretag .benefit-card p,
+.product-page-foretag .use-card p,
+.product-page-foreningar .benefit-card p,
+.product-page-foreningar .use-card p,
+.product-page-hitta-nya-kunder .benefit-card p,
+.product-page-hitta-nya-kunder .use-card p,
+.product-page-effektivisera .benefit-card p,
+.product-page-effektivisera .use-card p {
     line-height: 1.65;
 }
 
 .product-page-urval .benefit-card:hover,
-.product-page-urval .use-card:hover {
+.product-page-urval .use-card:hover,
+.product-page-bevakning .benefit-card:hover,
+.product-page-bevakning .use-card:hover,
+.product-page-portal .benefit-card:hover,
+.product-page-portal .use-card:hover,
+.product-page-foretag .benefit-card:hover,
+.product-page-foretag .use-card:hover,
+.product-page-foreningar .benefit-card:hover,
+.product-page-foreningar .use-card:hover,
+.product-page-hitta-nya-kunder .benefit-card:hover,
+.product-page-hitta-nya-kunder .use-card:hover,
+.product-page-effektivisera .benefit-card:hover,
+.product-page-effektivisera .use-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 22px 55px rgba(15, 23, 42, 0.09);
 }
 
 .product-page-urval .benefit-card:hover .card-icon,
-.product-page-urval .use-card:hover .card-icon {
+.product-page-urval .use-card:hover .card-icon,
+.product-page-bevakning .benefit-card:hover .card-icon,
+.product-page-bevakning .use-card:hover .card-icon,
+.product-page-portal .benefit-card:hover .card-icon,
+.product-page-portal .use-card:hover .card-icon,
+.product-page-foretag .benefit-card:hover .card-icon,
+.product-page-foretag .use-card:hover .card-icon,
+.product-page-foreningar .benefit-card:hover .card-icon,
+.product-page-foreningar .use-card:hover .card-icon,
+.product-page-hitta-nya-kunder .benefit-card:hover .card-icon,
+.product-page-hitta-nya-kunder .use-card:hover .card-icon,
+.product-page-effektivisera .benefit-card:hover .card-icon,
+.product-page-effektivisera .use-card:hover .card-icon {
     transform: translateY(-2px) scale(1.05);
 }
 
@@ -2050,16 +2394,34 @@ section::after {
         min-height: 72vh;
     }
 
-    .product-page-urval .product-hero {
+    .product-page-urval .product-hero,
+    .product-page-bevakning .product-hero,
+    .product-page-portal .product-hero,
+    .product-page-foretag .product-hero,
+    .product-page-foreningar .product-hero,
+    .product-page-hitta-nya-kunder .product-hero,
+    .product-page-effektivisera .product-hero {
         padding-top: 140px !important;
     }
 
-    .product-page-urval .product-overview {
+    .product-page-urval .product-overview,
+    .product-page-bevakning .product-overview,
+    .product-page-portal .product-overview,
+    .product-page-foretag .product-overview,
+    .product-page-foreningar .product-overview,
+    .product-page-hitta-nya-kunder .product-overview,
+    .product-page-effektivisera .product-overview {
         padding-top: 70px !important;
         padding-bottom: 70px !important;
     }
 
-    .product-page-urval .overview-badges {
+    .product-page-urval .overview-badges,
+    .product-page-bevakning .overview-badges,
+    .product-page-portal .overview-badges,
+    .product-page-foretag .overview-badges,
+    .product-page-foreningar .overview-badges,
+    .product-page-hitta-nya-kunder .overview-badges,
+    .product-page-effektivisera .overview-badges {
         gap: 10px;
         margin-top: 20px;
     }
@@ -2074,6 +2436,24 @@ section::after {
             180deg,
             rgba(7, 20, 49, 0.68) 0%,
             rgba(7, 20, 49, 0.48) 100%
+        );
+    }
+
+    .product-page-portal .product-hero::before {
+        background: linear-gradient(
+            180deg,
+            rgba(5, 15, 40, 0.9) 0%,
+            rgba(5, 15, 40, 0.7) 50%,
+            rgba(5, 15, 40, 0.4) 100%
+        );
+    }
+
+    .product-page-effektivisera .product-hero::before {
+        background: linear-gradient(
+            180deg,
+            rgba(10, 25, 60, 0.88) 0%,
+            rgba(10, 25, 60, 0.65) 50%,
+            rgba(10, 25, 60, 0.42) 100%
         );
     }
 
@@ -2107,6 +2487,38 @@ section::after {
         max-width: 100%;
         margin-bottom: 14px;
         padding: 18px 18px;
+    }
+
+    .product-page-portal .product-visual-wrap::before {
+        display: none;
+    }
+
+    .product-page-portal .product-visual-wrap:hover {
+        transform: none;
+    }
+
+    .product-page-portal .product-visual-copy {
+        margin-top: 16px;
+        margin-bottom: 0;
+        padding: 22px 20px;
+        border-radius: 18px;
+        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+    }
+
+    .product-page-effektivisera .product-visual-wrap::before {
+        display: none;
+    }
+
+    .product-page-effektivisera .product-visual-wrap:hover {
+        transform: none;
+    }
+
+    .product-page-effektivisera .product-visual-copy {
+        margin-top: 16px;
+        margin-bottom: 0;
+        padding: 22px 20px;
+        border-radius: 18px;
+        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
     }
 
     .urval-highlight {
@@ -2171,12 +2583,48 @@ section::after {
     .product-page-urval .feature-card,
     .product-page-urval .benefit-card,
     .product-page-urval .use-card,
-    .product-page-urval .process-card {
+    .product-page-urval .process-card,
+    .product-page-bevakning .feature-card,
+    .product-page-bevakning .benefit-card,
+    .product-page-bevakning .use-card,
+    .product-page-bevakning .process-card,
+    .product-page-portal .feature-card,
+    .product-page-portal .benefit-card,
+    .product-page-portal .use-card,
+    .product-page-portal .process-card,
+    .product-page-foretag .feature-card,
+    .product-page-foretag .benefit-card,
+    .product-page-foretag .use-card,
+    .product-page-foretag .process-card,
+    .product-page-foreningar .feature-card,
+    .product-page-foreningar .benefit-card,
+    .product-page-foreningar .use-card,
+    .product-page-foreningar .process-card,
+    .product-page-hitta-nya-kunder .feature-card,
+    .product-page-hitta-nya-kunder .benefit-card,
+    .product-page-hitta-nya-kunder .use-card,
+    .product-page-hitta-nya-kunder .process-card,
+    .product-page-effektivisera .feature-card,
+    .product-page-effektivisera .benefit-card,
+    .product-page-effektivisera .use-card,
+    .product-page-effektivisera .process-card {
         padding: 24px;
     }
 
     .product-page-urval .benefit-card,
-    .product-page-urval .use-card {
+    .product-page-urval .use-card,
+    .product-page-bevakning .benefit-card,
+    .product-page-bevakning .use-card,
+    .product-page-portal .benefit-card,
+    .product-page-portal .use-card,
+    .product-page-foretag .benefit-card,
+    .product-page-foretag .use-card,
+    .product-page-foreningar .benefit-card,
+    .product-page-foreningar .use-card,
+    .product-page-hitta-nya-kunder .benefit-card,
+    .product-page-hitta-nya-kunder .use-card,
+    .product-page-effektivisera .benefit-card,
+    .product-page-effektivisera .use-card {
         min-height: 0;
     }
 
@@ -2656,7 +3104,14 @@ section::after {
         z-index: 1000;
     }
 
-    main.product-page-urval {
+    main.product-page-urval,
+    main.product-page-bevakning,
+    main.product-page-portal,
+    main.product-page-foretag,
+    main.product-page-foreningar,
+    main.product-page-hitta-nya-kunder,
+    main.product-page-effektivisera,
+    main.contact-page {
         overflow: hidden;
         max-width: 100%;
     }
@@ -2951,5 +3406,410 @@ section::after {
         max-width: 240px;
         padding: 12px 22px;
         font-size: 0.78rem;
+    }
+}
+
+/* --- CONTACT PAGE --- */
+main.contact-page {
+    padding-bottom: 48px;
+    background: #f1f5f9;
+}
+
+.contact-hero-wrapper {
+    position: relative;
+    padding: 70px 20px 90px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(240, 247, 255, 0.82) 0%,
+            rgba(226, 238, 255, 0.72) 45%,
+            rgba(210, 229, 255, 0.68) 100%
+        ),
+        url("./static/images/a_clean_modern_abstract_background_scene._overall.png") center/cover no-repeat;
+    overflow: hidden;
+}
+
+.contact-hero-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(59, 130, 246, 0.18), transparent 35%),
+        radial-gradient(circle at 82% 68%, rgba(14, 165, 233, 0.22), transparent 38%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.contact-hero-wrapper > * {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 45px 0 55px;
+    text-align: center;
+}
+
+.contact-hero .section-kicker {
+    margin-bottom: 12px;
+}
+
+.contact-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.contact-hero > p:last-of-type {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: #475569;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.contact-background {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+}
+
+.contact-content {
+    position: relative;
+    width: 100%;
+}
+
+.contact-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 58fr) minmax(0, 38fr);
+    gap: 32px;
+    align-items: start;
+}
+
+.contact-form-card,
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+
+.contact-form-card {
+    padding: 36px;
+}
+
+.contact-info-card {
+    padding: 30px;
+}
+
+.contact-info-card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.contact-sidebar-lead {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #64748b;
+    margin-bottom: 22px;
+}
+
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-info-card--help h2 {
+    margin-bottom: 18px;
+}
+
+.contact-info-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.contact-info-row:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37, 99, 235, 0.09);
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.contact-info-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.contact-info-row a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-info-row a:hover {
+    text-decoration: underline;
+}
+
+.contact-help-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-help-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.98rem;
+    color: #334155;
+    line-height: 1.45;
+}
+
+.contact-help-list i {
+    color: #2563eb;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.contact-form-card .form-group {
+    margin-bottom: 22px;
+}
+
+.contact-form-card .form-group:last-of-type {
+    margin-bottom: 26px;
+}
+
+.contact-form-card label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.contact-form-card input[type="text"],
+.contact-form-card input[type="email"],
+.contact-form-card input[type="tel"],
+.contact-form-card textarea {
+    width: 100%;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #0f172a;
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form-card textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form-card input::placeholder,
+.contact-form-card textarea::placeholder {
+    color: #94a3b8;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+}
+
+.contact-form-card .radio-group {
+    border: 0;
+    margin: 0 0 22px;
+    padding: 0;
+}
+
+.contact-form-card .radio-group legend {
+    padding: 0;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #0f172a;
+}
+
+.contact-form-card .radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-form-card .radio-option:last-of-type {
+    margin-bottom: 0;
+}
+
+.contact-form-card .radio-option:has(input:checked) {
+    border-color: rgba(37, 99, 235, 0.55);
+    background: rgba(37, 99, 235, 0.06);
+}
+
+.contact-form-card .radio-option input {
+    accent-color: #2563eb;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.contact-form-card .radio-option span {
+    font-size: 0.98rem;
+    color: #334155;
+    line-height: 1.45;
+}
+
+.contact-form-card .contact-submit {
+    width: auto;
+    min-width: 200px;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Contact page: light hero behind fixed navbar */
+body:has(main.contact-page) .navbar {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+body:has(main.contact-page) .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+body:has(main.contact-page) .nav-menu a {
+    color: #334155;
+}
+
+body:has(main.contact-page) .nav-menu a:hover {
+    color: #0f172a;
+}
+
+body:has(main.contact-page) .nav-menu a::after {
+    background: #2563eb;
+}
+
+body:has(main.contact-page) .nav-brand {
+    color: #0f172a;
+}
+
+body:has(main.contact-page) .nav-dropdown-chevron {
+    color: #64748b;
+}
+
+body:has(main.contact-page) .nav-cta {
+    color: #00182e !important;
+}
+
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero-wrapper {
+        padding: 50px 16px 70px;
+    }
+
+    .contact-hero {
+        padding: 35px 0 40px;
+    }
+
+    .contact-form-card,
+    .contact-info-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .contact-form-card .contact-submit {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        text-align: center;
+    }
+
+    body:has(main.contact-page) .navbar {
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    body:has(main.contact-page) .nav-container .nav-toggle {
+        border-color: rgba(15, 23, 42, 0.2);
+        background: rgba(241, 245, 249, 0.9);
+    }
+
+    body:has(main.contact-page) .nav-container .nav-toggle span {
+        background: #0f172a;
+    }
+
+    body:has(main.contact-page) .nav-menu {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    body:has(main.contact-page) .mobile-submenu-toggle {
+        color: #0f172a;
+    }
+
+    body:has(main.contact-page) .mobile-submenu {
+        background: rgba(241, 245, 249, 0.95);
+        border-color: rgba(15, 23, 42, 0.08);
+    }
+
+    body:has(main.contact-page) .mobile-submenu a {
+        color: #334155;
+    }
+
+    body:has(main.contact-page) .mobile-submenu a:hover {
+        background: rgba(37, 99, 235, 0.08);
+        color: #1d4ed8;
     }
 }

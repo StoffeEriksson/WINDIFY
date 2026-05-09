@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register & datakvalitet | Windify AB</title>
+    <title>Kontakta oss | Windify AB</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -187,246 +187,177 @@
 
           <li><a href="index.html#about">Om oss</a></li>
           <li><a href="#">Logga in</a></li>
-          <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+          <li>
+            <a href="kontakt.html" class="nav-cta" aria-current="page">Kontakt</a>
+          </li>
         </ul>
       </div>
     </nav>
 
-    <main class="product-page product-page-register">
-      <section class="product-hero">
-        <div class="section-header">
-          <span class="section-kicker">REGISTER & DATAKVALITET</span>
-          <h1>Håll dina register uppdaterade och redo att användas</h1>
+    <main class="contact-page">
+      <section class="contact-hero-wrapper">
+        <section class="contact-hero">
+          <p class="section-kicker">KONTAKT</p>
+          <h1>Kontakta oss</h1>
           <p>
-            Windify hjälper företag att förbättra datakvaliteten i kund- och
-            medlemsregister genom uppdaterad information, smart bevakning och
-            tydlig struktur.
+            Har du frågor eller vill veta mer om hur Windify kan hjälpa dig? Fyll i
+            formuläret så återkommer vi så snart vi kan.
           </p>
-          <a href="kontakt.html" class="btn">Kontakta oss</a>
-        </div>
-      </section>
+        </section>
 
-      <section class="product-overview">
-        <div class="section-header">
-          <h2>Register förändras hela tiden</h2>
-          <p>
-            Företag byter adress, personer byter roller och kontaktuppgifter
-            blir snabbt inaktuella. Med rätt datakvalitet blir det enklare att
-            nå rätt personer, analysera rätt underlag och fatta bättre
-            affärsbeslut.
-          </p>
-        </div>
-        <p class="product-trust-note">
-          Vi använder datakällor med mycket hög kvalitet för att leverera
-          uppdaterade register, träffsäkra urval och pålitliga bevakningar – med
-          samma nivå av datakvalitet som större etablerade aktörer förlitar sig
-          på.
-        </p>
-      </section>
+        <section class="contact-background">
+        <div class="contact-content">
+          <div class="contact-container">
+            <form class="contact-form-card" action="#" method="post">
+            <div class="form-group">
+              <label for="company">Företagsnamn / Förening</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Ange företags- eller föreningsnamn"
+                autocomplete="organization"
+              />
+            </div>
 
-      <section class="product-visual-showcase">
-        <div class="product-visual-wrap">
-          <img
-            src="./static/images/register-dashboard.png"
-            alt="Registerdashboard med analyser och datakvalitet"
-          />
-          <div class="product-visual-copy">
-            <h2>Skapa bättre register. Fatta bättre beslut.</h2>
-            <p>
-              Med uppdaterad och kvalitetssäkrad data får du bättre överblick,
-              effektivare processer och tryggare beslutsunderlag.
-            </p>
-            <p>
-              Windify gör det enkelt att hålla dina register aktuella, korrekta
-              och användbara – varje dag.
-            </p>
+            <div class="form-group">
+              <label for="fullname">Ditt namn <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="fullname"
+                name="name"
+                placeholder="Ange ditt namn"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email"
+                >E-postadress <span aria-hidden="true">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="namn@exempel.se"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Telefonnummer</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="070-000 00 00"
+                autocomplete="tel"
+              />
+            </div>
+
+            <fieldset class="form-group radio-group">
+              <legend>Vad gäller ärendet?</legend>
+              <label class="radio-option">
+                <input type="radio" name="reason" value="mer" />
+                <span>Jag vill veta mer om Windify</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="reason" value="mote" />
+                <span>Jag vill boka ett möte</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="reason" value="support" />
+                <span>Support eller frågor</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="reason" value="annat" />
+                <span>Annat</span>
+              </label>
+            </fieldset>
+
+            <div class="form-group">
+              <label for="message"
+                >Meddelande <span aria-hidden="true">*</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Berätta kort vad du vill ha hjälp med"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn contact-submit">Skicka förfrågan</button>
+            </form>
+
+            <aside class="contact-sidebar">
+            <div class="contact-info-card">
+              <h2>Kontaktuppgifter</h2>
+              <p class="contact-sidebar-lead">
+                Vi hjälper företag och föreningar med register, bevakning, urval
+                och digital struktur.
+              </p>
+              <div class="contact-info-row">
+                <span class="contact-info-icon" aria-hidden="true"
+                  ><i class="fa-solid fa-envelope"></i
+                ></span>
+                <div>
+                  <span class="contact-info-label">E-post</span>
+                  <a href="mailto:info@windify.se">info@windify.se</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <span class="contact-info-icon" aria-hidden="true"
+                  ><i class="fa-solid fa-phone"></i
+                ></span>
+                <div>
+                  <span class="contact-info-label">Telefon</span>
+                  <a href="tel:+46700000000">070-000 00 00</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <span class="contact-info-icon" aria-hidden="true"
+                  ><i class="fa-solid fa-building"></i
+                ></span>
+                <div>
+                  <span class="contact-info-label">Org.nr</span>
+                  <span>559XXX-XXXX</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-info-card contact-info-card--help">
+              <h2>Vad kan vi hjälpa dig med?</h2>
+              <ul class="contact-help-list">
+                <li>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
+                  <span>Register & datakvalitet</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
+                  <span>Urval & prospektering</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
+                  <span>Bevakning i realtid</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
+                  <span>Digital portal</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check" aria-hidden="true"></i>
+                  <span>Lösningar för företag och föreningar</span>
+                </li>
+              </ul>
+            </div>
+            </aside>
           </div>
         </div>
-      </section>
-
-      <section class="product-features">
-        <div class="section-header">
-          <h2>Nyckelfunktioner</h2>
-        </div>
-        <div class="product-grid product-grid-4">
-          <article class="product-card feature-card">
-            <div class="product-card-icon">
-              <i class="fa-solid fa-database"></i>
-            </div>
-            <h3>Uppdaterade register</h3>
-            <p>
-              Håll kund- och medlemsdata aktuell genom löpande uppdateringar och
-              kvalitetssäkring.
-            </p>
-          </article>
-          <article class="product-card feature-card">
-            <div class="product-card-icon">
-              <i class="fa-solid fa-bell"></i>
-            </div>
-            <h3>Smart bevakning</h3>
-            <p>
-              Följ viktiga förändringar och agera när informationen uppdateras.
-            </p>
-          </article>
-          <article class="product-card feature-card">
-            <div class="product-card-icon">
-              <i class="fa-solid fa-address-book"></i>
-            </div>
-            <h3>Kompletterad kontaktdata</h3>
-            <p>
-              Fyll på saknad information och skapa mer användbara register.
-            </p>
-          </article>
-          <article class="product-card feature-card">
-            <div class="product-card-icon">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3>Bättre kontroll</h3>
-            <p>
-              Minska risken för felaktig information och skapa tryggare
-              beslutsunderlag.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="product-benefits">
-        <div class="section-header">
-          <h2>Varför datakvalitet spelar roll</h2>
-        </div>
-        <div class="product-grid product-grid-2">
-          <article class="product-card benefit-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-comments"></i>
-            </div>
-            <h3>Bättre kommunikation</h3>
-            <p>Nå rätt personer med rätt information.</p>
-          </article>
-          <article class="product-card benefit-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-gears"></i>
-            </div>
-            <h3>Mindre manuellt arbete</h3>
-            <p>Automatisera delar av registerarbetet och frigör tid.</p>
-          </article>
-          <article class="product-card benefit-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-bullseye"></i>
-            </div>
-            <h3>Mer träffsäkra beslut</h3>
-            <p>Bygg analyser och urval på aktuell och relevant data.</p>
-          </article>
-          <article class="product-card benefit-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <h3>Högre registervärde</h3>
-            <p>
-              Gör dina register mer användbara för försäljning, analys och
-              kundvård.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="product-use-cases">
-        <div class="section-header">
-          <h2>Så kan det användas</h2>
-        </div>
-        <div class="product-grid product-grid-3">
-          <article class="product-card use-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-database"></i>
-            </div>
-            <h3>Kundregister</h3>
-            <p>
-              Håll kundinformation uppdaterad för bättre försäljning, service
-              och analys.
-            </p>
-          </article>
-          <article class="product-card use-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-users"></i>
-            </div>
-            <h3>Medlemsregister</h3>
-            <p>
-              Skapa bättre struktur och överblick över medlemmar och
-              kontaktuppgifter.
-            </p>
-          </article>
-          <article class="product-card use-card">
-            <div class="card-icon">
-              <i class="fa-solid fa-bell"></i>
-            </div>
-            <h3>Bevakningar</h3>
-            <p>
-              Få stöd i att identifiera förändringar som påverkar din
-              verksamhet.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="product-process">
-        <div class="section-header">
-          <h2>Så fungerar det</h2>
-        </div>
-        <div class="process-grid">
-          <article class="process-card">
-            <div class="process-number">1</div>
-            <h3>Analys av befintligt register</h3>
-            <p>
-              Vi går igenom ditt nuvarande register och kartlägger datakvalitet,
-              struktur och eventuella brister.
-            </p>
-          </article>
-          <article class="process-card">
-            <div class="process-number">2</div>
-            <h3>Identifiering av fel och förändringar</h3>
-            <p>
-              Vi hittar dubletter, saknad information, inaktuella uppgifter och
-              förändringar som påverkar registerkvaliteten.
-            </p>
-          </article>
-          <article class="process-card">
-            <div class="process-number">3</div>
-            <h3>Komplettering och kvalitetssäkring</h3>
-            <p>
-              Vi uppdaterar, kompletterar och strukturerar informationen så att
-              den blir mer korrekt och användbar.
-            </p>
-          </article>
-          <article class="process-card">
-            <div class="process-number">4</div>
-            <h3>Aktuellt register redo att användas</h3>
-            <p>
-              Du får ett mer uppdaterat och pålitligt register som kan användas
-              för försäljning, analys, kundvård och beslut.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="product-final-cta cta-section">
-        <div class="product-cta-card">
-          <h2>Vill du förbättra kvaliteten i dina register?</h2>
-          <p>
-            Kontakta oss så berättar vi hur Windify kan hjälpa dig att hålla
-            informationen uppdaterad, korrekt och användbar.
-          </p>
-          <div class="cta-points">
-            <div>
-              <i class="fa-solid fa-check"></i> Uppdaterad och kvalitetssäkrad
-              data
-            </div>
-            <div>
-              <i class="fa-solid fa-check"></i> Träffsäkra urval och bättre
-              beslut
-            </div>
-            <div><i class="fa-solid fa-check"></i> Mindre manuellt arbete</div>
-          </div>
-          <a href="kontakt.html" class="btn cta-button">Kontakta oss</a>
-        </div>
+        </section>
       </section>
     </main>
 
