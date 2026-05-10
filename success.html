@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meddelande skickat | Windify</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body.fade-in-page {
+        opacity: 0;
+        animation: successPageFadeIn 0.7s ease-out forwards;
+      }
+
+      @keyframes successPageFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body.fade-in-page {
+          animation: none;
+          opacity: 1;
+        }
+      }
+
+      .success-section {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          rgba(7, 20, 49, 0.97) 0%,
+          rgba(15, 40, 95, 0.96) 45%,
+          rgba(31, 73, 169, 0.94) 100%
+        );
+        color: #ffffff;
+        text-align: center;
+        padding: 40px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .success-section::before {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 60%;
+        top: -20%;
+        left: -10%;
+        background: radial-gradient(
+          ellipse,
+          rgba(96, 165, 250, 0.22) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+
+      .success-section::after {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 50%;
+        bottom: -15%;
+        right: -15%;
+        background: radial-gradient(
+          ellipse,
+          rgba(56, 189, 248, 0.14) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+
+      .success-container {
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .success-icon {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 25px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2f67f1, #5b95f9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 42px;
+        line-height: 1;
+        font-weight: 700;
+        color: #ffffff;
+        box-shadow: 0 14px 40px rgba(47, 103, 241, 0.45),
+          0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .success-container h1 {
+        font-size: clamp(1.85rem, 5vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 15px;
+        line-height: 1.2;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .success-container p {
+        opacity: 0.9;
+        margin: 0 0 30px;
+        line-height: 1.65;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .success-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 14px 28px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #2f67f1, #5b95f9);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 12px 28px rgba(47, 103, 241, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(47, 103, 241, 0.42);
+      }
+
+      .btn-secondary {
+        display: inline-block;
+        padding: 14px 28px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.06);
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.14);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      @media (max-width: 600px) {
+        .success-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="fade-in-page">
+    <section class="success-section">
+      <div class="success-container">
+        <div class="success-icon" aria-hidden="true">✓</div>
+
+        <h1>Meddelande skickat!</h1>
+
+        <p>
+          Tack för att du kontaktade oss.<br />
+          Vi återkommer till dig så snart vi kan.
+        </p>
+
+        <div class="success-actions">
+          <a href="index.html" class="btn-primary">Till startsidan</a>
+          <a href="kontakt.html" class="btn-secondary">Skicka nytt meddelande</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

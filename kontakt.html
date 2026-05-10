@@ -208,19 +208,29 @@
         <section class="contact-background">
         <div class="contact-content">
           <div class="contact-container">
-            <form class="contact-form-card" action="#" method="post">
-            <div class="form-group">
-              <label for="company">Företagsnamn / Förening</label>
+            <form
+              class="contact-form-card"
+              action="success.html"
+              method="post"
+              novalidate
+            >
+            <div class="form-group" data-field="company">
+              <label for="company"
+                >Företagsnamn / Förening <span aria-hidden="true">*</span></label
+              >
               <input
                 type="text"
                 id="company"
                 name="company"
                 placeholder="Ange företags- eller föreningsnamn"
                 autocomplete="organization"
+                required
+                aria-describedby="error-company"
               />
+              <span class="field-error" id="error-company" role="alert"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-field="name">
               <label for="fullname">Ditt namn <span aria-hidden="true">*</span></label>
               <input
                 type="text"
@@ -229,10 +239,12 @@
                 placeholder="Ange ditt namn"
                 autocomplete="name"
                 required
+                aria-describedby="error-name"
               />
+              <span class="field-error" id="error-name" role="alert"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-field="email">
               <label for="email"
                 >E-postadress <span aria-hidden="true">*</span></label
               >
@@ -242,25 +254,38 @@
                 name="email"
                 placeholder="namn@exempel.se"
                 autocomplete="email"
+                inputmode="email"
                 required
+                aria-describedby="error-email"
               />
+              <span class="field-error" id="error-email" role="alert"></span>
             </div>
 
-            <div class="form-group">
-              <label for="phone">Telefonnummer</label>
+            <div class="form-group" data-field="phone">
+              <label for="phone"
+                >Telefonnummer <span aria-hidden="true">*</span></label
+              >
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 placeholder="070-000 00 00"
                 autocomplete="tel"
+                inputmode="tel"
+                required
+                aria-describedby="error-phone"
               />
+              <span class="field-error" id="error-phone" role="alert"></span>
             </div>
 
-            <fieldset class="form-group radio-group">
-              <legend>Vad gäller ärendet?</legend>
+            <fieldset
+              class="form-group radio-group"
+              data-field="reason"
+              aria-describedby="error-reason"
+            >
+              <legend>Vad gäller ärendet? <span aria-hidden="true">*</span></legend>
               <label class="radio-option">
-                <input type="radio" name="reason" value="mer" />
+                <input type="radio" name="reason" value="mer" required />
                 <span>Jag vill veta mer om Windify</span>
               </label>
               <label class="radio-option">
@@ -275,9 +300,10 @@
                 <input type="radio" name="reason" value="annat" />
                 <span>Annat</span>
               </label>
+              <span class="field-error" id="error-reason" role="alert"></span>
             </fieldset>
 
-            <div class="form-group">
+            <div class="form-group" data-field="message">
               <label for="message"
                 >Meddelande <span aria-hidden="true">*</span></label
               >
@@ -287,10 +313,15 @@
                 rows="5"
                 placeholder="Berätta kort vad du vill ha hjälp med"
                 required
+                aria-describedby="error-message"
               ></textarea>
+              <span class="field-error" id="error-message" role="alert"></span>
             </div>
 
-            <button type="submit" class="btn contact-submit">Skicka förfrågan</button>
+            <button type="submit" class="contact-submit-btn">
+              <span class="btn-text">Skicka förfrågan</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
             </form>
 
             <aside class="contact-sidebar">
@@ -501,6 +532,148 @@
             }
           });
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form.contact-form-card");
+        const button = document.querySelector(".contact-submit-btn");
+        const text = document.querySelector(".contact-submit-btn .btn-text");
+
+        if (!form || !button || !text) return;
+
+        const defaultBtnLabel = text.textContent.trim();
+        const err = {
+          company: "Ange företags- eller föreningsnamn.",
+          name: "Ange ditt namn.",
+          email: "Ange en giltig e-postadress.",
+          phone: "Ange telefonnummer.",
+          reason: "Välj vad ärendet gäller.",
+          message: "Skriv ett meddelande.",
+        };
+
+        const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+        function clearErrors() {
+          form.querySelectorAll(".form-group--error").forEach((el) => {
+            el.classList.remove("form-group--error");
+          });
+          form.querySelectorAll(".radio-group--error").forEach((el) => {
+            el.classList.remove("radio-group--error");
+          });
+          form.querySelectorAll(".field-error").forEach((el) => {
+            el.textContent = "";
+          });
+        }
+
+        function setFieldError(key, message) {
+          const group = form.querySelector('[data-field="' + key + '"]');
+          if (!group) return;
+          const hint = document.getElementById(
+            key === "name"
+              ? "error-name"
+              : key === "reason"
+                ? "error-reason"
+                : "error-" + key
+          );
+          if (hint) hint.textContent = message;
+          if (group.tagName === "FIELDSET") {
+            group.classList.add("radio-group--error");
+          } else {
+            group.classList.add("form-group--error");
+          }
+        }
+
+        function clearFieldError(key) {
+          const group = form.querySelector('[data-field="' + key + '"]');
+          if (!group) return;
+          const hintId =
+            key === "name"
+              ? "error-name"
+              : key === "reason"
+                ? "error-reason"
+                : "error-" + key;
+          const hint = document.getElementById(hintId);
+          if (hint) hint.textContent = "";
+          group.classList.remove("form-group--error", "radio-group--error");
+        }
+
+        function validate() {
+          clearErrors();
+          let firstInvalid = null;
+          const company = (form.querySelector("#company") || {}).value?.trim() || "";
+          const name = (form.querySelector("#fullname") || {}).value?.trim() || "";
+          const email = (form.querySelector("#email") || {}).value?.trim() || "";
+          const phone = (form.querySelector("#phone") || {}).value?.trim() || "";
+          const message = (form.querySelector("#message") || {}).value?.trim() || "";
+          const reason = form.querySelector('input[name="reason"]:checked');
+
+          if (!company) {
+            setFieldError("company", err.company);
+            firstInvalid = firstInvalid || form.querySelector("#company");
+          }
+          if (!name) {
+            setFieldError("name", err.name);
+            firstInvalid = firstInvalid || form.querySelector("#fullname");
+          }
+          if (!email) {
+            setFieldError("email", err.email);
+            firstInvalid = firstInvalid || form.querySelector("#email");
+          } else if (!emailOk(email)) {
+            setFieldError("email", err.email);
+            firstInvalid = firstInvalid || form.querySelector("#email");
+          }
+          if (!phone) {
+            setFieldError("phone", err.phone);
+            firstInvalid = firstInvalid || form.querySelector("#phone");
+          }
+          if (!reason) {
+            setFieldError("reason", err.reason);
+            firstInvalid = firstInvalid || form.querySelector('input[name="reason"]');
+          }
+          if (!message) {
+            setFieldError("message", err.message);
+            firstInvalid = firstInvalid || form.querySelector("#message");
+          }
+
+          if (firstInvalid) {
+            firstInvalid.focus({ preventScroll: false });
+            return false;
+          }
+          return true;
+        }
+
+        form.addEventListener(
+          "input",
+          function (e) {
+            const t = e.target;
+            if (t.id === "company") clearFieldError("company");
+            if (t.id === "fullname") clearFieldError("name");
+            if (t.id === "email") clearFieldError("email");
+            if (t.id === "phone") clearFieldError("phone");
+            if (t.id === "message") clearFieldError("message");
+          },
+          true
+        );
+
+        form.addEventListener("change", function (e) {
+          if (e.target && e.target.name === "reason") clearFieldError("reason");
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (button.classList.contains("loading")) return;
+
+          if (!validate()) return;
+
+          button.classList.add("loading");
+          button.disabled = true;
+          text.textContent = "Skickar...";
+
+          setTimeout(function () {
+            window.location.href = "success.html";
+          }, 1200);
+        });
+      });
     </script>
   </body>
 </html>
